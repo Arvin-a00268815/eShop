@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("products")
@@ -27,6 +28,11 @@ public class ProductsController {
     @PostMapping("/addItem")
     public void addItem(@RequestBody Item item){
         repository.save(item);
+    }
+
+    @GetMapping("/getItem/{id}")
+    public Optional<Item> findItem(@PathVariable int id){
+        return repository.findById(id);
     }
 
 }
