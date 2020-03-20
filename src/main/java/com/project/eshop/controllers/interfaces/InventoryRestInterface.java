@@ -14,4 +14,6 @@ public interface InventoryRestInterface {
      Item findItem(int id);
      void removeItem(int id);
      ResponseEntity updateItem(Item item);
+     List<Item> findByPriceGreaterThanEqual(int price);
+     List<Item> findByColorOrderByPrice(String color);
 }

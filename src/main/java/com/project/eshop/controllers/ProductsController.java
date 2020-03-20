@@ -83,4 +83,21 @@ public class ProductsController implements InventoryRestInterface {
             return ResponseEntity.created(location).build();
         }
     }
+
+    @GetMapping("/findByPriceGTE/{price}")
+    @Override
+    public List<Item> findByPriceGreaterThanEqual(@PathVariable int price) {
+
+        List<Item> items = repository.findByPriceGreaterThanEqual(price);
+
+        return items;
+    }
+
+    @GetMapping("/findByColorOrderByPrice/{color}")
+    @Override
+    public List<Item> findByColorOrderByPrice(@PathVariable String color) {
+
+        List<Item> items = repository.findByColorOrderByPriceDesc(color);
+        return items;
+    }
 }
