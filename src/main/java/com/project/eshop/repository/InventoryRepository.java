@@ -9,4 +9,5 @@ public interface InventoryRepository extends JpaRepository<Item, Integer> {
 
     List<Item> findByPriceGreaterThanEqual(int price);
     List<Item> findByColorOrderByPriceDesc(String color);
+
 }

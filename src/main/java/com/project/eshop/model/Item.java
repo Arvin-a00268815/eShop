@@ -1,20 +1,27 @@
 package com.project.eshop.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.*;
 
 @Entity
+@ApiModel(description = "the class describes the item details")
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "order id auto generated whenever customer makes an order")
     private Integer id;
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String description;
+    @ApiModelProperty(notes = "price of the product is provided in Euros")
     private int price;
     private String color;
+    private int quantity;
+    @ApiModelProperty(notes = "product rating given within scale of 1 to 5")
+    private double rating;
 
     public Integer getId() {
         return id;
@@ -54,5 +61,21 @@ public class Item {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }
