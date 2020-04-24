@@ -1,6 +1,7 @@
 package com.project.eshop.controllers.interfaces;
 
 import com.project.eshop.model.Item;
+import com.project.eshop.model.Order;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,4 +19,7 @@ public interface InventoryRestInterface {
      ResponseEntity updateItem(Item item);
      List<Item> findByPriceGreaterThanEqual(int price);
      List<Item> findByColorOrderByPrice(String color);
+     List<Order> getOrders();
+     ResponseEntity addOrder(Order order);
+     Order findOrder(int id);
 }

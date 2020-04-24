@@ -192,6 +192,7 @@ public class ProductsController implements InventoryRestInterface {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success|OK"),
             @ApiResponse(code = 404, message = "No orders found!!!") })
+    @Override
     public List<Order> getOrders(){
         return orderRepository.findAll();
     }
@@ -200,6 +201,7 @@ public class ProductsController implements InventoryRestInterface {
     @ApiOperation(value = "Insert the order details made by the customer", response = Page.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success|OK") })
+    @Override
     public ResponseEntity addOrder(@RequestBody Order order) {
 
         order.setId(null);
@@ -209,4 +211,21 @@ public class ProductsController implements InventoryRestInterface {
         return ResponseEntity.created(location).build();
 
     }
+
+    @GetMapping("orders/{id}")
+    @ApiOperation(value = "Search for the order using order id", response = Page.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 404, message = "No order found!!!") })
+    @Override
+    public Order findOrder(@PathVariable int id){
+        Optional<Order> optional = orderRepository.findById(id);
+
+        if(optional.isPresent()){
+            return optional.get();
+        }
+        throw new ItemNotFoundException("The order "+id+" does not exist");
+    }
+
+
 }
