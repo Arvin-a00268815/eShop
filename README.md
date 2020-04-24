@@ -1,9 +1,9 @@
 # eShop
 
 #Spring boot REST backend
-Import the source code in IntelliJ and run the application
+ Import the source code in IntelliJ and run the application
 
-before running this spring boot app, run mysql server from xampp
+Before running this spring boot app, run mysql server from xampp
 please change the mysql user and password appropriately in the application.properties 
 and the database name is given as "db_2". By default, mysql port is 3306.
 the service runs in "http://localhost:8080/"
@@ -40,8 +40,8 @@ GET/inventory/products/price/greater/{price}
 
 
 # For React UI
-step 1: unzip "e-shop-ui-master.zip"
-step 1: navigate to the folder containing package.json from the command line 
-step 2: run "npm install" and wait for installation to complete
-step 3: then run "npm start"
+- step 1: unzip "e-shop-ui-master.zip"
+- step 2: navigate to the folder containing package.json from the command line 
+- step 3: run "npm install" and wait for installation to complete
+- step 4: then run "npm start"
 and then access "http://localhost:3000/"
