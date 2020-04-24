@@ -40,5 +40,8 @@ GET/inventory/products/price/greater/{price}
 
 
 # For React UI
-navigate to the folder in command line and run "npm start"
+step 1: unzip "e-shop-ui-master.zip"
+step 1: navigate to the folder containing package.json from the command line 
+step 2: run "npm install" and wait for installation to complete
+step 3: then run "npm start"
 and then access "http://localhost:3000/"
